@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Safe Todo App</title>
+
+  <!-- ✅ CORRECT PATH FOR RENDER -->
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -9,21 +12,27 @@
 <h1>✅ My Todo List</h1>
 
 <form action="/add" method="POST">
-  <input type="text" name="text" placeholder="Add a task..." required maxlength="200">
-  <button>Add</button>
+  <input
+    type="text"
+    name="text"
+    placeholder="Add a task..."
+    required
+    maxlength="200"
+  >
+  <button type="submit">Add</button>
 </form>
 
 <ul>
   <% todos.forEach(todo => { %>
     <li class="<%= todo.completed ? 'done' : '' %>">
       <form action="/toggle/<%= todo._id %>" method="POST">
-        <button>✔</button>
+        <button type="submit">✔</button>
       </form>
 
       <span><%= todo.text %></span>
 
       <form action="/delete/<%= todo._id %>" method="POST">
-        <button>🗑</button>
+        <button type="submit">🗑</button>
       </form>
     </li>
   <% }) %>
