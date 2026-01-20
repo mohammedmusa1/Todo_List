@@ -1,36 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Cloud To-Do</title>
-  <link rel="stylesheet" href="/css/style.css" />
+  <title>Safe Todo App</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<div class="container">
-  <h1>📝 MongoDB Atlas To-Do</h1>
+<h1>✅ My Todo List</h1>
 
-  <form action="/add" method="POST" class="add-form">
-    <input type="text" name="title" placeholder="Add a task..." required />
-    <button>Add</button>
-  </form>
+<form action="/add" method="POST">
+  <input type="text" name="text" placeholder="Add a task..." required maxlength="200">
+  <button>Add</button>
+</form>
 
-  <ul class="todo-list">
-    <% todos.forEach(todo => { %>
-      <li class="<%= todo.completed ? 'done' : '' %>">
-        <form action="/toggle/<%= todo._id %>" method="POST">
-          <button class="check">✔</button>
-        </form>
+<ul>
+  <% todos.forEach(todo => { %>
+    <li class="<%= todo.completed ? 'done' : '' %>">
+      <form action="/toggle/<%= todo._id %>" method="POST">
+        <button>✔</button>
+      </form>
 
-        <span><%= todo.title %></span>
+      <span><%= todo.text %></span>
 
-        <form action="/delete/<%= todo._id %>" method="POST">
-          <button class="delete">✖</button>
-        </form>
-      </li>
-    <% }) %>
-  </ul>
-</div>
+      <form action="/delete/<%= todo._id %>" method="POST">
+        <button>🗑</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
 
 </body>
 </html>
