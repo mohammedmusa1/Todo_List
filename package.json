@@ -1,21 +1,19 @@
 {
-  "name": "todo-nodemon",
+  "name": "safe-todo-app",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
-    "dotenv": "^17.2.3",
-    "ejs": "^3.1.10",
-    "express": "^4.22.1",
-    "mongoose": "^9.1.4"
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "mongoose": "^8.1.1",
+    "helmet": "^7.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }
