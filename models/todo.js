@@ -2,15 +2,16 @@ const mongoose = require("mongoose");
 
 const todoSchema = new mongoose.Schema(
   {
-    title: {
+    text: {
       type: String,
       required: true,
       trim: true,
+      maxlength: 200
     },
     completed: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   { timestamps: true }
 );
